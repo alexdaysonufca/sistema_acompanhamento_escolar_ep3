@@ -48,6 +48,7 @@ htmlcov/
 *.swp
 *.swo
 *~
+
 .project
 .pydevproject
 .settings/
@@ -156,3 +157,6 @@ site/
 # Arquivos de demo temporários
 demo_output/
 demo_*.db
+
+# Roteiro do vídeo explicativo
+roteiro do vídeo explicativo/

@@ -8,7 +8,7 @@
 **Banco de Dados:** SQLite (IDs inteiros com autoincremento)
 **Testes:** pytest
 **Total de arquivos Python (src/):** 8 arquivos
-**Total de linhas de código (src/):** 1.716 linhas
+**Total de linhas de código (src/):** aproximadamente 1.700 linhas
 
 ---
 
@@ -28,49 +28,63 @@
 ## Estrutura do Projeto
 
 ```
-etapa_2-v2/
-├── main.py                          # Script de demonstração (465 linhas)
-├── requirements.txt                 # Dependências (8 linhas)
-├── README.md                        # Documentação principal (99 linhas)
-├── DESCRICAO_DO_PROJETO.md          # Este arquivo
-├── .gitignore                       # Arquivos ignorados pelo git (158 linhas)
+etapa_3-v2/
+├── main.py                          # Script de demonstração
+├── requirements.txt                 # Dependências
+├── README.md                        # Documentação principal
+├── .gitignore                       # Arquivos ignorados pelo git
 ├── .python-version                  # Versão do Python (3.12)
 │
+├── docs/                            # 📁 DOCUMENTAÇÃO (UI/UX e Relatórios)
+│   ├── DESCRICAO_DO_PROJETO.md      # Este arquivo (Documentação técnica)
+│   ├── EP3_INDICE.md                # Índice do Entregável 3
+│   ├── EP3_RELATORIO.md             # Relatório de usabilidade e acessibilidade
+│   ├── PROTOTIPAGEM_WIREFRAME.md    # Documentação das telas e componentes
+│   ├── RELATORIO_ATENDIMENTO_REQ.md # Relatório antigo de requisitos da Etapa 2
+│   ├── SITEMAP.md                   # Documentação de fluxos e navegação
+│   │
+│   └── assets/                      # 📁 IMAGENS DA DOCUMENTAÇÃO
+│       ├── sitemap_visual.png       # Mapa do sistema
+│       ├── Wireframe - Painel escolar - Tela 1.png
+│       ├── Wireframe - Painel escolar - Tela 2.png
+│       ├── Wireframe - Painel escolar - Tela 3.png
+│       ├── Wireframe - Painel escolar - Tela 4.png
+│       └── Wireframe - Painel escolar - Tela 5.png
 ├── src/                             # Código-fonte (8 arquivos Python)
-│   ├── __init__.py                  # Pacote principal (3 linhas)
-│   ├── utils.py                     # Validação de CPF, email, ano (131 linhas)
+│   ├── __init__.py                  # Pacote principal 
+│   ├── utils.py                     # Validação de CPF, email, ano
 │   │
 │   ├── domain/                      # Modelos e regras de negócio
-│   │   ├── __init__.py              # Exporta classes e enums (32 linhas)
-│   │   └── models.py               # 7 classes + 4 enums (397 linhas)
+│   │   ├── __init__.py              # Exporta classes e enums
+│   │   └── models.py               # 7 classes + 4 enums
 │   │
 │   ├── application/                 # Serviços / casos de uso
-│   │   ├── __init__.py              # Exporta serviços (6 linhas)
-│   │   └── services.py             # 2 serviços + 2 dataclasses (232 linhas)
+│   │   ├── __init__.py              # Exporta serviços
+│   │   └── services.py             # 2 serviços + 2 dataclasses
 │   │
 │   └── infrastructure/              # Banco de dados e repositórios
-│       ├── __init__.py              # Exporta tudo (25 linhas)
-│       ├── database.py             # DatabaseManager + 7 repositórios (679 linhas)
-│       └── schema.sql              # 11 tabelas + 11 índices (211 linhas)
+│       ├── __init__.py              # Exporta tudo
+│       ├── database.py             # DatabaseManager + 7 repositórios
+│       └── schema.sql              # 11 tabelas + 11 índices
 │
 └── tests/                           # Testes (5 arquivos de teste)
-    ├── __init__.py                  # (5 linhas)
+    ├── __init__.py                 
     ├── unit/
     │   ├── __init__.py              # (vazio)
-    │   ├── test_entities.py         # Testes das classes do domínio (206 linhas)
-    │   ├── test_cpf_validation.py   # Validação de CPF (39 linhas)
-    │   └── test_passing_grade.py    # Teste de aprovação (20 linhas)
+    │   ├── test_entities.py         # Testes das classes do domínio
+    │   ├── test_cpf_validation.py   # Validação de CPF
+    │   └── test_passing_grade.py    # Teste de aprovação
     └── integration/
         ├── __init__.py              # (vazio)
-        ├── test_integrity.py        # Integridade do projeto (59 linhas)
-        └── test_manual_repositories.py  # CRUD completo com banco real (385 linhas)
+        ├── test_integrity.py        # Integridade do projeto
+        └── test_manual_repositories.py  # CRUD completo com banco real
 ```
 
 ---
 
 ## Arquivos na Raiz
 
-### main.py (465 linhas)
+### main.py
 
 Script que demonstra o sistema funcionando de ponta a ponta. Inclui funções auxiliares de formatação (`print_header`, `print_separator`, `print_success`, `print_error`) e de criação de dados de exemplo (`create_sample_student`, `create_sample_classroom`, `create_sample_assessment`).
 
@@ -88,7 +102,7 @@ Script que demonstra o sistema funcionando de ponta a ponta. Inclui funções au
 11. Desvincula responsável e verifica resultado
 12. Testa find_by_id() e list_all()
 13. Desativa e reativa aluno, verifica contagem de ativos
-14. Mostra estatísticas completas do banco (10 tabelas com registros)
+14. Mostra estatísticas completas do banco (11 tabelas com registros)
 
 **Como rodar:**
 ```bash
@@ -97,7 +111,7 @@ python main.py
 
 ---
 
-### requirements.txt (8 linhas)
+### requirements.txt
 
 Só tem uma dependência externa:
 ```
@@ -107,19 +121,19 @@ O resto do projeto usa apenas bibliotecas padrão do Python (sqlite3, datetime, 
 
 ---
 
-### README.md (99 linhas)
+### README.md
 
 Documentação resumida do projeto com estrutura de pastas, funcionalidades, casos de uso, organização do código e instruções de execução.
 
 ---
 
-### .gitignore (158 linhas)
+### .gitignore
 
 Ignora arquivos de cache Python (`__pycache__/`, `*.pyc`), ambientes virtuais (`.venv/`), banco de dados (`*.db`), arquivos de IDE e builds.
 
 ---
 
-### .python-version (1 linha)
+### .python-version
 
 Define a versão do Python como `3.12`.
 
@@ -127,13 +141,13 @@ Define a versão do Python como `3.12`.
 
 ## src/ - Código-Fonte
 
-### src/__init__.py (3 linhas)
+### src/__init__.py
 
 Docstring simples: "Painel de Acompanhamento Escolar - MVP".
 
 ---
 
-### src/utils.py (131 linhas)
+### src/utils.py
 
 Funções de validação usadas pelas classes do domínio:
 
@@ -147,13 +161,13 @@ Funções de validação usadas pelas classes do domínio:
 
 ## src/domain/ - Modelos e Regras
 
-### src/domain/__init__.py (32 linhas)
+### src/domain/__init__.py
 
 Exporta todos os enums e classes do models.py via `__all__`.
 
 ---
 
-### src/domain/models.py (397 linhas)
+### src/domain/models.py
 
 Arquivo único com tudo do domínio: os 4 enums e as 7 classes do sistema. Os IDs começam como `None` e são preenchidos pelo SQLite após o primeiro `save()` (INTEGER PRIMARY KEY AUTOINCREMENT). Todos os atributos são públicos. Validações são feitas no `__init__`.
 
@@ -216,13 +230,13 @@ Todos os enums têm `__str__` retornando o valor.
 
 ## src/application/ - Serviços
 
-### src/application/__init__.py (6 linhas)
+### src/application/__init__.py
 
 Exporta os 2 serviços e as 2 dataclasses.
 
 ---
 
-### src/application/services.py (232 linhas)
+### src/application/services.py
 
 Arquivo com todos os serviços do sistema, organizados em 2 classes + 2 dataclasses auxiliares.
 
@@ -256,13 +270,13 @@ Recebe `student_repo`, `classroom_repo`, `parent_repo`.
 
 ## src/infrastructure/ - Banco de Dados e Repositórios
 
-### src/infrastructure/__init__.py (25 linhas)
+### src/infrastructure/__init__.py
 
 Exporta DatabaseManager, get_database e os 7 repositórios via `__all__`.
 
 ---
 
-### src/infrastructure/database.py (679 linhas)
+### src/infrastructure/database.py
 
 Arquivo que contém a classe DatabaseManager e os 7 repositórios SQL.
 
@@ -302,7 +316,7 @@ Função `get_database(db_path=None)` — Singleton: retorna sempre a mesma inst
 
 ---
 
-### src/infrastructure/schema.sql (211 linhas)
+### src/infrastructure/schema.sql
 
 Define toda a estrutura do banco com 11 tabelas e 11 índices para consultas frequentes. Todas as chaves primárias usam `INTEGER PRIMARY KEY AUTOINCREMENT`. Tipos (turno, nível, bimestre, tipo de avaliação) são armazenados como texto, com CHECK constraints garantindo valores válidos.
 
@@ -335,10 +349,10 @@ Define toda a estrutura do banco com 11 tabelas e 11 índices para consultas fre
 
 Total: **5 arquivos de teste**, **60 testes**, todos passando.
 
-### tests/__init__.py (5 linhas)
+### tests/__init__.py
 Docstring: "Testes Automatizados - Painel de Acompanhamento Escolar. Execute com: pytest tests/"
 
-### tests/unit/test_entities.py (206 linhas) — 30 testes
+### tests/unit/test_entities.py — 30 testes
 Testa as 7 classes do domínio organizadas em 7 classes de teste:
 - **TestStudent** (7 testes): criação válida, matrícula vazia, email inválido, email normaliza minúsculo, add_parent, add_parent duplicado, deactivate/activate
 - **TestTeacher** (4 testes): criação, add_subject, add_subject duplicada, teaches_subject
@@ -348,20 +362,20 @@ Testa as 7 classes do domínio organizadas em 7 classes de teste:
 - **TestGrade** (3 testes): criação, nota excede máximo, nota negativa
 - **TestAttendance** (5 testes): presença, falta, justificar falta, justificar presença rejeita, presente com justificativa rejeita
 
-### tests/unit/test_cpf_validation.py (39 linhas) — 6 testes
+### tests/unit/test_cpf_validation.py — 6 testes
 Testa as funções de CPF do utils.py:
 - CPFs válidos aceitos, dígitos errados rejeitados, todos iguais rejeitados, tamanho errado rejeitado, normalizar_cpf, formatar_cpf
 
-### tests/unit/test_passing_grade.py (20 linhas) — 3 testes
+### tests/unit/test_passing_grade.py — 3 testes
 Testa a constante `MEDIA_APROVACAO = 6.0` do ServicosDoAluno:
 - Média é 6.0, nota 6.0 aprova, nota 5.9 reprova
 
-### tests/integration/test_integrity.py (59 linhas) — 5 testes
+### tests/integration/test_integrity.py — 5 testes
 Testa que os módulos importam corretamente e que classes/métodos existem:
 - Importa domain.models (classes e enums), services (2 serviços + 2 dataclasses), infrastructure (DatabaseManager e 7 repos), utils (5 funções)
 - Existência de métodos no StudentRepository (save, find_by_id, list_all, delete)
 
-### tests/integration/test_manual_repositories.py (385 linhas) — 16 testes
+### tests/integration/test_manual_repositories.py — 16 testes
 Teste mais completo — cria banco SQLite temporário (via `tmp_path`), aplica schema.sql, faz CRUD com todos os 7 repositórios:
 - **StudentRepository** (2 testes): CRUD completo, find_by_id inexistente
 - **TeacherRepository** (2 testes): com disciplinas (teacher_subjects), list_all
@@ -400,48 +414,18 @@ Teste mais completo — cria banco SQLite temporário (via `tmp_path`), aplica s
 
 ## Métricas
 
-### Linhas de Código (src/)
-```
-src/infrastructure/database.py           679 linhas  (DatabaseManager + 7 repositórios)
-src/domain/models.py                     397 linhas  (4 enums + 7 classes)
-src/application/services.py              232 linhas  (2 serviços + 2 dataclasses)
-src/infrastructure/schema.sql            211 linhas  (11 tabelas + 11 índices)
-src/utils.py                             131 linhas  (validações)
-src/__init__.py + domain + app + infra    66 linhas  (exportações)
-------------------------------------------------------
-Código-fonte total (src/):             1.716 linhas
-```
-
-### Demonstração
-```
-main.py                                  465 linhas
-------------------------------------------------------
-Total com demonstração:                2.181 linhas
-```
+### Código-Fonte (src/)
+- Mais de 1.700 linhas de código focadas em regras de negócio, casos de uso e persistência estruturadas em Clean Architecture.
 
 ### Testes
-```
-test_manual_repositories.py              385 linhas  (16 testes)
-test_entities.py                         206 linhas  (30 testes)
-test_integrity.py                         59 linhas  (5 testes)
-test_cpf_validation.py                    39 linhas  (6 testes)
-test_passing_grade.py                     20 linhas  (3 testes)
-tests/__init__.py + unit + integration     5 linhas
-------------------------------------------------------
-Testes total:                            714 linhas  (60 testes)
-```
+- ~700 linhas de código dedicadas à garantia de qualidade, divididas em 60 testes automatizados (unitários e de integração).
 
 ### Banco de Dados
-```
-Tabelas:                    11
-Índices explícitos:         11
-Chaves primárias:           INTEGER AUTOINCREMENT
-Foreign keys:               CASCADE / RESTRICT / SET NULL
-CHECK constraints:          18
-UNIQUE constraints:         11
-------------------------------------------------------
-Total de tabelas:           11
-```
+- 11 tabelas normalizadas
+- 11 índices explícitos criados para otimização
+- Chaves primárias usando INTEGER AUTOINCREMENT
+- 18 constraints de segurança aplicadas (CHECK)
+- 11 regras de unicidade (UNIQUE constraints)
 
 ---
 
@@ -449,7 +433,7 @@ Total de tabelas:           11
 
 ### Instalação
 ```bash
-cd etapa_2-v2
+cd etapa_3-v2
 python -m venv .venv
 .venv\Scripts\activate       # Windows
 source .venv/bin/activate    # Linux/Mac
