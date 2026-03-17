@@ -184,22 +184,22 @@ Resultado: Personas (personagens baseados em dados reais)
 ```
 
 *Neste projeto:*
-- 📊 Pesquisamos público: pais 25-70 anos, diversas deficiências
+- 📊 Público considerado: pais e responsáveis com 25-70 anos, diversas deficiências
 - 👥 Criamos 4 personas
 - 🎯 Cada uma com necessidades claras
 
-#### 2. DEFINIÇÃO: Necessidades Reais, Não Assumções
+#### 2. DEFINIÇÃO: Necessidades reais, não suposições
 
 ```
-❌ Assumção: "Pais querem tudo em uma página"
+❌ Suposição: "Pais querem tudo em uma página"
 ✅ Realidade: "Pais querem INFO CRÍTICA AGORA, detalhes depois"
 
-❌ Assumção: "Colorido é mais bonito"
+❌ Suposição: "Colorido é mais bonito"
 ✅ Realidade: "Cores usadas para STATUS (verde=ok, vermelho=atenção)"
 ```
 
 *Neste projeto:*
-- 🎯 Necessidade #1: Ver rapidamente se filho está bem
+- 🎯 Necessidade #1: Ver rapidamente se filho está bem acadêmicamente
 - 🎯 Necessidade #2: Entender por que nota está baixa
 - 🎯 Necessidade #3: Justificar faltas sem burocracia
 
@@ -719,7 +719,7 @@ Este projeto é educacional, mas contribuições são bem-vindas:
 Para dúvidas, sugestões ou feedback sobre o projeto:
 
 - 📧 **Email:** antonioalexdayson@ufca.edu.br, mariaalexsandra@ufca.edu.br
-- 📞 **Telefone:** (88) 3535-2020
+- 📞 **Telefone:** (88) xxxx-xxxx
 - 💬 **Issues no GitHub:** Abra uma issue para bugs/features
 
 ---
