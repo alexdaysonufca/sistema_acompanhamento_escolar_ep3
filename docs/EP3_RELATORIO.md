@@ -210,7 +210,7 @@ ESTRUTURA HIERÁRQUICA:
 
 ### 4.2 Usabilidade (Específica)
 
-#### ✅ PRINCÍPIOS BEM APLICADOS
+#### ✅ PRINCÍPIOS APLICADOS
 
 **1. Legibilidade Hierárquica**
 - Uso claro de diferentes tamanhos de fonte (H1, H2, labels) para guiar a leitura do usuário para as informações mais importantes.
@@ -254,7 +254,7 @@ Problema: Informações de crianças exigem proteção LGPD
 Solução Implementada:
 - ✅ Logout automático
 - ✅ Cada responsável vê só seus filhos
-- ✅ Avisos sobre privacy
+- ✅ Avisos sobre privacidade
 
 Melhorias:
 - 🔒 Confirmação por email para grandes mudanças

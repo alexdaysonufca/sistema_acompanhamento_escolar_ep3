@@ -15,8 +15,14 @@ from decimal import Decimal
 if sys.platform == 'win32':
     import locale
     if sys.stdout.encoding != 'utf-8':
-        sys.stdout.reconfigure(encoding='utf-8')
-        sys.stderr.reconfigure(encoding='utf-8')
+        # getattr é uma forma segura de chamar um método que pode não existir
+        reconfigure_stdout = getattr(sys.stdout, 'reconfigure', None)
+        if reconfigure_stdout:
+            reconfigure_stdout(encoding='utf-8')
+
+        reconfigure_stderr = getattr(sys.stderr, 'reconfigure', None)
+        if reconfigure_stderr:
+            reconfigure_stderr(encoding='utf-8')
 
 # Adicionar diretório raiz ao path
 sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
@@ -167,6 +173,7 @@ print("=" * 70)
 print("\n👨‍🏫 Criando professor...")
 professor = Teacher(name="Carlos Mendes", email="carlos.mendes@escola.com", registration="PROF001", subjects=["Matemática", "Física"])
 teacher_repo.save(professor)
+assert professor.id is not None
 print_success(f"{professor.name} (ID: {professor.id}) - Disciplinas: {', '.join(professor.subjects)}")
 
 # Demonstrar métodos de disciplinas
@@ -184,7 +191,9 @@ print("\n👪 Criando responsáveis...")
 responsavel1 = Parent(name="Roberto Silva", email="roberto.silva@email.com", cpf="52998224725", phone="(85) 99999-0001")
 responsavel2 = Parent(name="Ana Santos", email="ana.santos@email.com", cpf="11144477735", phone="(85) 99999-0002")
 parent_repo.save(responsavel1)
+assert responsavel1.id is not None
 parent_repo.save(responsavel2)
+assert responsavel2.id is not None
 print_success(f"{responsavel1.name} (ID: {responsavel1.id}) - CPF: {responsavel1.cpf}")
 print_success(f"{responsavel2.name} (ID: {responsavel2.id}) - CPF: {responsavel2.cpf}")
 
@@ -195,8 +204,12 @@ aluno2 = create_sample_student(name="Maria Santos", registration="2024002", emai
 aluno3 = create_sample_student(name="Pedro Costa", registration="2024003", email="pedro.costa@escola.com")
 
 student_repo.save(aluno1)
+assert aluno1.id is not None
 student_repo.save(aluno2)
+assert aluno2.id is not None
 student_repo.save(aluno3)
+assert aluno3.id is not None
+
 for aluno in [aluno1, aluno2, aluno3]:
     print_success(f"{aluno.name} (ID: {aluno.id})")
 
@@ -210,6 +223,7 @@ turma = create_sample_classroom(
 )
 turma.teacher_id = professor.id
 classroom_repo.save(turma)
+assert turma.id is not None
 print_success(f"{turma.year}{turma.identifier} - {turma.shift.value} (ID: {turma.id}) - Prof. {professor.name}")
 
 # 4.5 Matrículas (via ServicosSecretaria)
@@ -251,7 +265,9 @@ trabalho1 = create_sample_assessment(
 )
 
 assessment_repo.save(prova1)
+assert prova1.id is not None
 assessment_repo.save(trabalho1)
+assert trabalho1.id is not None
 print_success(f"{prova1.title} (peso {prova1.weight})")
 print_success(f"{trabalho1.title} (peso {trabalho1.weight})")
 
@@ -387,6 +403,7 @@ print_success(f"Alunos restantes de {responsavel2.name}: IDs {alunos_da_ana}")
 # Consultar repositórios (find_by_id / list_all)
 print("\n🔎 Consultando repositórios...")
 aluno_encontrado = student_repo.find_by_id(aluno1.id)
+assert aluno_encontrado is not None
 print_success(f"find_by_id({aluno1.id}): {aluno_encontrado.name} - {aluno_encontrado.email}")
 todos_alunos = student_repo.list_all()
 print_success(f"list_all(): {len(todos_alunos)} estudantes ativos")
